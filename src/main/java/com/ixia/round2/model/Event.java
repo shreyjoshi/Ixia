@@ -1,23 +1,21 @@
 package com.ixia.round2.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
+//@Entity
 public class Event {
 	
-	@Id
+	//@Id
 	String Id;
 	String eventname, host, category;
-	Date starttime, endtime;
+	LocalDateTime starttime;
+	LocalDateTime endtime;
 	
 	public Event() {
 		super();
 	}
 
-	public Event(String id, String eventname, String host, String category, Date starttime, Date endtime) {
+	public Event(String id, String eventname, String host, String category, LocalDateTime starttime, LocalDateTime endtime) {
 		super();
 		Id = id;
 		this.eventname = eventname;
@@ -59,20 +57,20 @@ public class Event {
 		this.category = category;
 	}
 
-	public Date getStarttime() {
+	public LocalDateTime getStarttime() {
 		return starttime;
 	}
 
-	public void setStarttime(Date starttime) {
-		this.starttime = starttime;
+	public void setStarttime(LocalDateTime localDateTime) {
+		this.starttime = localDateTime;
 	}
 
-	public Date getEndtime() {
+	public LocalDateTime getEndtime() {
 		return endtime;
 	}
 
-	public void setEndtime(Date endtime) {
-		this.endtime = endtime;
+	public void setEndtime(LocalDateTime localDateTime) {
+		this.endtime = localDateTime;
 	}
 
 	@Override

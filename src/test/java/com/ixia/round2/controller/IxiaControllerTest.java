@@ -6,19 +6,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import com.ixia.round2.model.Event;
@@ -47,7 +41,7 @@ public class IxiaControllerTest {
 	@Test
 	public void testGetHosts(){
 		//when(service.getHosts()).thenReturn(new ArrayList<>());
-		ResponseEntity<List<String>> response =ixiaController.getHosts();
+		ResponseEntity<HashSet<String>> response =ixiaController.getHosts();
 		
 		assertEquals(response.getBody().size(), 5);
 	}

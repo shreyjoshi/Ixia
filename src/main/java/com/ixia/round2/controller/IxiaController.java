@@ -1,5 +1,6 @@
 package com.ixia.round2.controller;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class IxiaController {
 	//API will return list of host, if not found will through exception along with status as 404
 	@GetMapping("/hosts")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<List<String>> getHosts(){
+	public ResponseEntity<HashSet<String>> getHosts(){
 		return ResponseEntity.ok().body(service.getHosts());
 	}
 }

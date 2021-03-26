@@ -1,5 +1,6 @@
 package com.ixia.round2.service;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.ixia.round2.exception.EventException;
 import com.ixia.round2.model.Event;
-import com.ixia.round2.repository.EventRepository;
+import com.ixia.round2.repository.CSVRepository;
 
 @Service
 public class EventService {
 
 	@Autowired
-	EventRepository repo;
+	CSVRepository repo;
 	
 	public List<Event> getEventByCategory(String category){
 		List<Event> eventList = repo.findByCategory(category);
@@ -23,12 +24,12 @@ public class EventService {
 			return eventList;
 	}
 
-	public List<String> getHosts() {
+	public HashSet<String> getHosts() {
 		// TODO Auto-generated method stub
-		List<String> hostList = repo.getAllHosts();
-		if(hostList.isEmpty())
+		HashSet<String> hosts = repo.getAllHosts();
+		if(hosts.isEmpty())
 			throw new EventException();
 		else
-			return hostList;
+			return hosts;
 	}
 }
